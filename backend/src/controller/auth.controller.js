@@ -59,7 +59,7 @@ async function loginUser(req, res) {
     const comparePassword = await bcrypt.compare(password, user.password);
     if (!comparePassword) {
       return res.status(400).json({
-        message: "Unauthorized User",
+        message: "Email or Password is Incorrect",
       });
     }
 
@@ -151,7 +151,7 @@ async function loginFoodPartner(req, res) {
     );
     if (!comparePassword) {
       return res.status(400).json({
-        message: "Unauthorized Food partner",
+        message: "Email or Password is Incorrect",
       });
     }
 
