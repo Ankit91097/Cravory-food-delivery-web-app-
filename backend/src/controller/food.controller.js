@@ -26,4 +26,16 @@ async function createFood(req, res) {
   }
 }
 
-module.exports = { createFood };
+async function getFoodItems(req, res) {
+  try {
+    const foodItems = await foodModel.find();
+    res.status(200).json({
+      message: "Food Item Fetched Successfully",
+      foodItems,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { createFood, getFoodItems };
